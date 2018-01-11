@@ -62,3 +62,6 @@ alias chrome-disabled-websecurity="open -a Google\ Chrome\ Canary --args --disab
 # Fucking do what I fucking say
 # ⌘c/⌘v from https://twitter.com/aoighost/status/899767947702521856
 alias fucking="sudo"
+
+# Use vscode instead of atom cli
+alias atom="code"
