@@ -19,6 +19,9 @@
   pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
 	hub = !"open $(git config --get remote.origin.url | sed 's/git@//g' | sed 's/github.com:/http:\\/\\/github.com\\//g' | sed 's/pushpull.space:/https:\\/\\/pushpull.space\\//g')"
 	cleanup = "!f() { git branch --merged | grep -v '*' | xargs -n 1 git branch -d; }; f"
+  changes-local = !git for-each-ref --sort='-committerdate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads
+  changes-remote = !git for-each-ref --sort='-committerdate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/remotes
+
 [user]
 	email = marian.friedmann@gmail.com
 	name = Marian Friedmann
