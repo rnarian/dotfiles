@@ -15,6 +15,7 @@
 	# Undo a `git push`
 	undopush = push -f origin HEAD^:master
 	oops = commit --amend
+  d = diff -- . ':(exclude)package-lock.json'
   pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
 	hub = !"open $(git config --get remote.origin.url | sed 's/git@//g' | sed 's/github.com:/http:\\/\\/github.com\\//g' | sed 's/pushpull.space:/https:\\/\\/pushpull.space\\//g')"
 	cleanup = "!f() { git branch --merged | grep -v '*' | xargs -n 1 git branch -d; }; f"
