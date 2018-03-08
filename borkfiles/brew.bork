@@ -27,6 +27,7 @@ ok brew git-extras
 ok brew jq
 ok brew postgres
 ok brew visual-studio-code
+ok brew iterm2
 
 # Cleanup
 bake brew cleanup
