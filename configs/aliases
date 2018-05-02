@@ -65,3 +65,5 @@ alias fucking="sudo"
 
 # Use vscode instead of atom cli
 alias atom="code"
+
+alias phpmamp='/Applications/MAMP/bin/php/php7.2.1/bin/php'
