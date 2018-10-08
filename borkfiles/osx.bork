@@ -127,6 +127,8 @@ ok defaults com.apple.Safari IncludeDevelopMenu bool true
 ok defaults com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey bool true
 ok defaults NSGlobalDomain WebKitDeveloperExtras bool true
 
+ok defaults com.apple.dock no-bouncing bool TRUE
+
 ###############################################################################
 # Time Machine                                                                #
 ###############################################################################
