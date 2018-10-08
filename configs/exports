@@ -3,6 +3,8 @@ export GOPATH=~/go
 # PATH environment variable for use with MacPorts.
 export PATH=/usr/local/bin:/usr/bin:/usr/local/heroku/bin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:$PATH:$GOPATH/bin
 
+PATH=/Applications/MAMP/bin/php/php7.2.1/bin:$PATH
+
 export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1/
 export PATH=$ANDROID_HOME:$PATH
 
