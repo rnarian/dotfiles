@@ -9,10 +9,10 @@ fi
 if tput setaf 1 &> /dev/null; then
 	tput sgr0
 	if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
-		MAGENTA=$(tput setaf 9)
-		ORANGE=$(tput setaf 172)
-		GREEN=$(tput setaf 190)
-		PURPLE=$(tput setaf 141)
+		MAGENTA=$(tput setaf 005)
+		ORANGE=$(tput setaf 003)
+		GREEN=$(tput setaf 006)
+		PURPLE=$(tput setaf 004)
 		WHITE=$(tput setaf 256)
 	else
 		MAGENTA=$(tput setaf 5)
@@ -49,7 +49,7 @@ function parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-export PS1="▶ \[$GREEN\]\W\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \":\")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\] \[$RESET\]"
+export PS1="▶ \[$PURPLE\]\W\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \"\[$RESET\]:\[$WHITE\]\")\[$GREEN\]\$(parse_git_branch)\[$WHITE\] \[$RESET\]"
 
 # use login instead of su to prevent "sh: parse_git_branch: command not found" when logged in as root
 alias su="login root"
