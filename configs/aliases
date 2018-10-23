@@ -8,7 +8,7 @@ alias s="cd ~/Sites"
 
 # Lists & Directorys
 alias ls="ls -G"
-alias ll="ls -al"
+alias ll="ls -alh"
 alias lsd='ls -l | grep "^d"'
 
 # Git
