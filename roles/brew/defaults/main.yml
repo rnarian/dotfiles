@@ -1,80 +1,42 @@
 brew_taps:
   - domt4/autoupdate
-  - frdmn/formulas
   - homebrew/cask-versions
+  - homebrew/cask-fonts
 
 brew_packages:
   - ansible
-  - asciinema
   - bat
-  - bats
-  - composer
-  - coreutils
-  - ddig
-  - dev-search
   - exa
-  - exiftool
-  - ffmpeg
-  - font-saucecodepro-nerd-font
+  - font-sauce-code-pro-nerd-font
   - git-extras
-  - go
-  - gpg2
   - htop
-  - imapsync
-  - iperf
-  - java
   - jq
   - mas
-  - media-info
-  - mitmproxy
-  - mtr
-  - nmap
   - nodejs
-  - odig
-  - pinentry-mac
-  - ruby
-  - sshuttle
   - telnet
   - terminal-notifier
   - tmux
-  - uping
-  - wakeonlan
   - wget
-  - youtube-dl
   - zplug
   - zsh
 
 cask_packages:
   - 1password
-  - bitwarden
-  - aerial
   - alfred
   - appcleaner
-  - atext
   - bartender
-  - carbon-copy-cloner
-  - discord
   - docker
-  - dropbox
-  - gas-mask
   - gitup
   - google-chrome
-  - hex-fiend
   - iterm2
   - keka
   - macdown
-  - nordvpn
   - nvalt
   - spotify
   - telegram
-  - textual
   - transmit
-  - ultimaker-cura
-  - vagrant
   - virtualbox
-  - visual-studio-code-insiders
-  - vlc
-  - wireshark
+  - visual-studio-code
 
 cask_ql_packages:
   - provisionql

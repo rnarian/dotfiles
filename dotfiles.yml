@@ -1,5 +1,6 @@
 - name: Set up local workstation
   hosts: local
+  ignore_errors: yes
   roles:
     - role: brew
       tags:
@@ -7,9 +8,6 @@
     - role: dotfiles
       tags:
         - dotfiles
-    - role: gem
-      tags:
-        - gem
     - role: npm
       tags:
         - npm

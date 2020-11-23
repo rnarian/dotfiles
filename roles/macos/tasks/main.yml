@@ -83,7 +83,7 @@
     domain: com.googlecode.iterm2.plist
     key: PrefsCustomFolder
     type: string
-    value: /Users/jonas/.dotfiles/files/iterm2
+    value: /Users/marian/.dotfiles/files/iterm2
     state: present
 
 - name: "[macOS] iterm2 - Use the custom preferences in the directory"

@@ -6,9 +6,8 @@
   autocrlf = input
 
 [user]
-  name = Jonas Friedmann
-  email = j@frd.mn
-  signingkey = D713FC95
+  name = Marian Friedmann
+  email = marian.friedmann@gmail.com
 
 [merge]
   log = true
@@ -50,8 +49,5 @@
   smudge = git lfs smudge %f
   required = true
 
-[commit]
-  gpgsign = true
-
 [github]
-  user = frdmn
+  user = rnarian
