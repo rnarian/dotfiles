@@ -5,9 +5,9 @@ brew_taps:
 
 brew_packages:
   - ansible
+  - awscli
   - bat
   - exa
-  - font-sauce-code-pro-nerd-font
   - git-extras
   - htop
   - jq
@@ -24,14 +24,23 @@ cask_packages:
   - 1password
   - alfred
   - appcleaner
+  - autodesk-fusion360
   - bartender
+  - brave-browser
   - docker
+  - figma
+  - firefox
+  - firefox-developer-edition
   - gitup
   - google-chrome
   - iterm2
   - keka
   - macdown
+  - notion
   - nvalt
+  - prusaslicer
+  - rectangle
+  - slack
   - spotify
   - telegram
   - transmit
