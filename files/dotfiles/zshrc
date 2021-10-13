@@ -78,6 +78,11 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
 # Disable tab character insertion
 zstyle ':completion:*' insert-tab false
 
+# NVM config
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 ###
 ### Plugins and prompt
 ###
@@ -91,6 +96,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "marzocchi/zsh-notify"
+zplug "agkozak/zsh-z"
 
 # Load theme
 zplug mafredri/zsh-async, from:github
