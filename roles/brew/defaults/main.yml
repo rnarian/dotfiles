@@ -2,6 +2,7 @@ brew_taps:
   - domt4/autoupdate
   - homebrew/cask-versions
   - homebrew/cask-fonts
+  - teamookla/speedtest
 
 brew_packages:
   - ansible
@@ -19,6 +20,7 @@ brew_packages:
   - wget
   - zplug
   - zsh
+  - speedtest
 
 cask_packages:
   - 1password
