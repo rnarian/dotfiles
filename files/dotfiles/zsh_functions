@@ -2,3 +2,12 @@
 search () {
     grep -R "${*}" . | grep -v "/.git/"
 }
+
+# Simple python server
+server () {
+  if [ -z "$1" ]; then
+    python -m SimpleHTTPServer 8000 & open http://0.0.0.0:8000
+  else
+    python -m SimpleHTTPServer $1 & open http://0.0.0.0:$1
+  fi
+}
