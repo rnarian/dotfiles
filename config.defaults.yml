@@ -81,7 +81,6 @@ mas_packages:
 
 npm_packages:
   - bower
-  - giracli
   - grunt
   - gulp
   - init.js
