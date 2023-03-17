@@ -74,13 +74,10 @@ gem_packages:
   - nokogiri
 
 mas_packages:
-  - 1451685025  # Wireguard
-  - 411643860  # DaisyDisk
-  - 1295203466  # Microsoft Remote Desktop
   - 408981434  # iMovie
-  - 430255202  # Mactracker
-  - 409183694  # Keynote
-  - 1289583905  # Pixelmator Pro
+  - 955848755  # Theine
+  - 1351639930  # Gifski
+  - 1568924476 # Mela
 
 npm_packages:
   - bower
