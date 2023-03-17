@@ -8,8 +8,14 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
 # $PATH
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$HOME/.npm-packages/bin:$PATH
 
+# Go
+export GOPATH=$HOME/.go
+
 # $EDITOR
 export EDITOR="vim"
+
+# Gem Home dir
+export GEM_HOME="$HOME/.gem"
 
 # Update locale
 export LANG="de_DE.UTF-8"

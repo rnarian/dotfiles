@@ -1,29 +1,32 @@
-- name: "[dotfiles] Get list of files to symlink"
-  shell: "ls -1 ~/.dotfiles/files/dotfiles  > /tmp/dotfiles_symlinks_to_build"
+---
+- name: "[﬒ dotfiles] Get list of files to symlink"
+  ansible.builtin.shell: |
+    ls -1 {{ ansible_env.PWD }}/files/dotfiles > /tmp/dotfilesToLink
+  changed_when: false
 
-- name: "[dotfiles] Store list of files into variable"
-  shell: "cat /tmp/dotfiles_symlinks_to_build"
-  register: filesToSymlink
+- name: "[﬒ dotfiles] Store list of files into variable"
+  ansible.builtin.command: "cat /tmp/dotfilesToLink"
+  register: files_to_symlink
+  changed_when: false
+  tags:
+    - skip_ansible_lint
 
-- name: "[dotfiles] Set symlinks"
-  file:
+- name: "[﬒ dotfiles] Set symlinks"
+  ansible.builtin.file:
     src: '{{ ansible_env.PWD }}/files/dotfiles/{{ item }}'
     path: '~/.{{ item }}'
     state: link
   with_items:
-    - "{{filesToSymlink.stdout_lines}}"
+    - "{{ files_to_symlink.stdout_lines }}"
 
-- name: "[dotfiles] Download git-shift and set executable bit"
-  get_url:
-    url: https://raw.githubusercontent.com/gitbits/git-shift/master/git-shift
-    dest: /usr/local/bin/git-shift
-    mode: '750'
-
-- name: "[dotfiles] Download Vundle (vi bundle manager)"
-  git:
+- name: "[﬒ dotfiles] Download Vundle (vi bundle manager)"
+  ansible.builtin.git:
     repo: https://github.com/VundleVim/Vundle.vim.git
     dest: ~/.vim/bundle/Vundle.vim
+    version: v0.10.2
+  changed_when: false
 
-- name: "[dotfiles] Setup and install Vundle"
-  shell:
+- name: "[﬒ dotfiles] Setup and install Vundle"
+  ansible.builtin.shell:
     cmd: echo | echo | vim +PluginInstall +qall &>/dev/null
+  changed_when: false

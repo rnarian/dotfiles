@@ -1,3 +1,11 @@
+## set tab title to cwd
+# $1 = type; 0 - both, 1 - tab, 2 - title
+precmd () {
+  tab_label=${PWD/${HOME}/\~} # use 'relative' path
+  echo -ne "\e]2;${tab_label}\a" # set window title to full string
+  echo -ne "\e]1;${tab_label: -24}\a" # set tab title to rightmost 24 characters
+}
+
 # Recursive search using grep
 search () {
     grep -R "${*}" . | grep -v "/.git/"
@@ -16,3 +24,19 @@ server () {
 function video_to_gif(){
   ffmpeg -i "$1" -filter_complex "[0:v] fps=24,scale=1000:-1,split [a][b];[a] palettegen [p];[b][p] paletteuse" "${1%.*}.gif" && gifsicle -O3 "${1%.*}.gif" -o "${1%.*}.gif" && osascript -e "display notification \"${1%.*}.gif successfully converted and saved\" with title \"Gif successfully generated!\""
 };
+
+ffmpeg-optimize() {
+    if [ ! -f "$1" ]; then
+        echo "Input file \"$1\" doesnt exist"
+        return 1
+    fi
+
+    ffpb -i "$1" "$1.mp4"
+}
+
+ffmpeg-optimize-and-replace() {
+    ffmpeg-optimize "$1"
+    if [ $? -eq 0 ]; then
+        rm "$1"
+    fi
+}

@@ -1,19 +1,43 @@
+---
 - name: Set up local workstation
   hosts: local
-  ignore_errors: yes
+
+  vars_files: ["config.defaults.yml"]
+
+  pre_tasks:
+    - name: "[﬒ dotfiles] Include config.yml overrides"
+      include_vars: "{{ item }}"
+      with_fileglob: "{{ playbook_dir }}/config.yml"
+      tags: ["always"]
+
   roles:
+    - role: geerlingguy.mac.homebrew
+      tags: ["brew"]
+      when: ansible_distribution == 'MacOSX'
+
     - role: brew
-      tags:
-        - brew
+      tags: ["brew"]
+      when: ansible_distribution == 'MacOSX'
+
     - role: dotfiles
-      tags:
-        - dotfiles
+      tags: ["dotfiles"]
+
+    - role: gem
+      tags: ["gem"]
+
     - role: npm
-      tags:
-        - npm
+      tags: ["npm"]
+
+    - role: mas
+      tags: ["mas"]
+      when: ansible_distribution == 'MacOSX'
+
     - role: macos
-      tags:
-        - macos
+      tags: ["macos"]
+      when: ansible_distribution == 'MacOSX'
+
     - role: pip
-      tags:
-        - pip
+      tags: ["pip"]
+
+    - role: docker
+      tags: ["docker"]
