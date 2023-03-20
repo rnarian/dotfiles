@@ -51,6 +51,7 @@ cask_packages:
   - font-hack-nerd-font
   - gas-mask
   - gitup
+  - hey
   - iterm2
   - keka
   - macdown
