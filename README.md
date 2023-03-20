@@ -35,11 +35,11 @@ iTerm | Visual Studio Code
 
 ### Installation
 
-1. Make sure to uprade Pip Homebrew before installing Ansible:
+1. Ensure Homebrew and Ansible are installed before proceeding:
 
     ```bash
-    sudo pip3 install --upgrade pip
-    pip3 install ansible
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew install ansible
     ```
 
 2. Fork this repository:
