@@ -49,7 +49,7 @@ cask_packages:
   - firefox-developer-edition
   - docker
   - font-hack-nerd-font
-  - gas-mask
+  - switchhosts
   - gitup
   - iterm2
   - keka
