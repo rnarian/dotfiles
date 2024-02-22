@@ -51,6 +51,7 @@ cask_packages:
   - font-hack-nerd-font
   - switchhosts
   - gitup
+  - hey
   - iterm2
   - keka
   - macdown
