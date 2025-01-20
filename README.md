@@ -71,6 +71,7 @@ $ dotfiles
 $ dotfiles --bootstrap
 
 # Apply a specific tag/task
+# Eg: [dotfiles, brew, cask, mas, npm, pip]
 $ dotfiles <tag>
 ```
 
