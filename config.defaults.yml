@@ -24,6 +24,7 @@ brew_packages:
   - jq
   - mas
   - nodejs
+  - nvm
   - pinentry-mac
   - ruby
   - telnet
