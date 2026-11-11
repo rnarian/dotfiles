@@ -157,3 +157,22 @@ bindkey '^[[B' history-substring-search-down
 # Single line prompt
 prompt_newline='%666v'
 PROMPT=" $PROMPT"
+
+# pnpm
+export PNPM_HOME="/Users/marian/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+export PATH="$HOME/.local/bin:$PATH"
+
+# bun completions
+[ -s "/Users/marian/.bun/_bun" ] && source "/Users/marian/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# mise (node/pnpm/java per project)
+eval "$(mise activate zsh)"

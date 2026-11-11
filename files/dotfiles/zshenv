@@ -6,7 +6,7 @@
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
 
 # $PATH
-export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$HOME/.npm-packages/bin:$PATH
+export PATH=$HOME/.bin:/usr/local/sbin:~/.local/bin:/usr/local/bin:$HOME/.npm-packages/bin:$PATH
 
 # Go
 export GOPATH=$HOME/.go
