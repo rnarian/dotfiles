@@ -6,3 +6,5 @@ npm-debug.log
 
 # vi temp files
 *~
+
+**/.claude/settings.local.json
