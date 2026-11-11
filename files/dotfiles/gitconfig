@@ -24,7 +24,7 @@
   log = true
 
 [push]
-  default = matching
+	default = simple
 
 [difftool]
   prompt = false
