@@ -174,5 +174,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# Ghostty: strip its prompt marks before pure rebuilds PROMPT, else they land mid-line (after %666v) and break redraws
+_strip_ghostty_marks() { setopt localoptions extendedglob; PROMPT=${PROMPT//$'%{\e]133;'[^$'\a']#$'\a%}'} }
+precmd_functions[(i)prompt_pure_precmd]=(_strip_ghostty_marks prompt_pure_precmd)
+
 # mise (node/pnpm/java per project)
 eval "$(mise activate zsh)"
