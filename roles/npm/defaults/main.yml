@@ -1,8 +1,0 @@
-packages:
-  - bower
-  - grunt
-  - gulp
-  - json
-  - prettyjson
-  - yarn
-  - yo

@@ -1,6 +1,6 @@
 " be iMproved
 set nocompatible
-filetype off
+filetype plugin indent on
 
 """
 " General
@@ -30,31 +30,3 @@ set tabstop=2                     " Soft tabs, 2 characters
 set softtabstop=2                 " "
 set shiftwidth=2                  " "
 set expandtab                     " "
-
-"""
-" Vundle
-"""
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-
-" let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
-
-" vim-markdown (https://github.com/tpope/vim-markdown)
-Plugin 'tpope/vim-markdown'
-
-" All of your Plugins must be added before the following line
-call vundle#end()
-filetype plugin indent on
-
-"""
-" Plugin settings
-"""
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*

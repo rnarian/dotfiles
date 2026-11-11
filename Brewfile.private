@@ -1,0 +1,8 @@
+# Private Mac only: ./install.sh private
+
+cask "autodesk-fusion"
+cask "mullvad-vpn"
+cask "prusaslicer"
+cask "telegram"
+
+mas "Mela", id: 1568924476

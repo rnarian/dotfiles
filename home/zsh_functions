@@ -1,5 +1,4 @@
 ## set tab title to cwd
-# $1 = type; 0 - both, 1 - tab, 2 - title
 precmd () {
   tab_label=${PWD/${HOME}/\~} # use 'relative' path
   echo -ne "\e]2;${tab_label}\a" # set window title to full string
@@ -11,18 +10,8 @@ search () {
     grep -R "${*}" . | grep -v "/.git/"
 }
 
-# Simple python server
-server () {
-  if [ -z "$1" ]; then
-    python -m SimpleHTTPServer 8000 & open http://0.0.0.0:8000
-  else
-    python -m SimpleHTTPServer $1 & open http://0.0.0.0:$1
-  fi
-}
-
-
 function video_to_gif(){
-  ffmpeg -i "$1" -filter_complex "[0:v] fps=24,scale=1000:-1,split [a][b];[a] palettegen [p];[b][p] paletteuse" "${1%.*}.gif" && gifsicle -O3 "${1%.*}.gif" -o "${1%.*}.gif" && osascript -e "display notification \"${1%.*}.gif successfully converted and saved\" with title \"Gif successfully generated!\""
+  ffmpeg -i "$1" -filter_complex "[0:v] fps=24,scale=1000:-1,split [a][b];[a] palettegen [p];[b][p] paletteuse" "${1%.*}.gif" && osascript -e "display notification \"${1%.*}.gif successfully converted and saved\" with title \"Gif successfully generated!\""
 };
 
 ffmpeg-optimize() {
@@ -31,7 +20,7 @@ ffmpeg-optimize() {
         return 1
     fi
 
-    ffpb -i "$1" "$1.mp4"
+    ffmpeg -i "$1" "$1.mp4"
 }
 
 ffmpeg-optimize-and-replace() {

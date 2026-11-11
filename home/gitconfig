@@ -24,7 +24,7 @@
   log = true
 
 [push]
-	default = simple
+  default = simple
 
 [difftool]
   prompt = false
@@ -41,8 +41,8 @@
 
 [alias]
   # Pretty logs
-        l = log --pretty=oneline -n 40 --graph
-        ll = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  l = log --pretty=oneline -n 40 --graph
+  ll = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   a = add
   co = commit -m
   m = merge --no-ff
@@ -53,33 +53,18 @@
   tags = tag -l
   branches = branch -a -v
   remotes = remote -v
-  # Undo a git push
-  undopush = push -f origin HEAD^:master
   oops = commit --amend
   d = diff -- . ':(exclude)package-lock.json'
   pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
-  hub = !"open $(git config --get remote.origin.url | sed 's/git@//g' | sed 's/github.com:/http:\\/\\/github.com\\//g' | sed 's/pushpull.space:/https:\\/\\/pushpull.space\\//g')"
   cleanup = "!f() { git branch --merged | grep -v '*' | xargs -n 1 git branch -d; }; f"
   changes-local = !git for-each-ref --sort='-committerdate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads
   changes-remote = !git for-each-ref --sort='-committerdate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/remotes
   delete-merged-branches = "!git branch --merged | egrep -v '(^\\*|master|dev)' | xargs echo git branch -d"
-
-[mergetool "sublime"]
-  cmd = subl -w $MERGED
-  trustExitCode = false
-
-[filter "hawser"]
-  clean = git hawser clean %f
-  smudge = git hawser smudge %f
-  required = true
 
 [filter "lfs"]
   clean = git lfs clean %f
   smudge = git lfs smudge %f
   required = true
 
-[github]
-  user = rnarian
-
 [init]
-	defaultBranch = main
+  defaultBranch = main

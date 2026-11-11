@@ -34,7 +34,6 @@ setopt hist_reduce_blanks      # Trim multiple blanks in history
 
 SAVEHIST=999999
 HISTSIZE=999999
-CASE_SENSITIVE="false"
 
 HISTFILE=~/.zsh_history
 
@@ -51,9 +50,6 @@ autoload -U colors && colors
 ###
 ### Auto/tab-completions
 ###
-
-# Enable bash completion
-# autoload bashcompinit && bashcompinit
 
 # Proper case insensitivity
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
@@ -78,42 +74,17 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
 # Disable tab character insertion
 zstyle ':completion:*' insert-tab false
 
-# NVM config
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 ###
-### Plugins and prompt
+### Plugins and prompt (installed by the Brewfile)
 ###
 
-# zplug initalization
-export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
-source $ZPLUG_HOME/init.zsh
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# syntax-highlighting has to load before history-substring-search
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-# Load plugins
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "marzocchi/zsh-notify"
-zplug "agkozak/zsh-z"
-
-# Load theme
-zplug mafredri/zsh-async, from:github
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-
-# Completions
-zplug "docker/cli", use:contrib/completion/zsh
-zplug "docker/compose", use:contrib/completion/zsh
-zplug "lukechilds/zsh-better-npm-completion", defer:2
-
-# Install packages that have not been installed yet
-if ! zplug check --verbose; then
-    zplug install
-fi
-
-# Load all modules
-zplug load
+autoload -U promptinit && promptinit
+prompt pure
 
 ###
 ### Aliases and functions
@@ -158,25 +129,12 @@ bindkey '^[[B' history-substring-search-down
 prompt_newline='%666v'
 PROMPT=" $PROMPT"
 
-# pnpm
-export PNPM_HOME="/Users/marian/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-export PATH="$HOME/.local/bin:$PATH"
-
-# bun completions
-[ -s "/Users/marian/.bun/_bun" ] && source "/Users/marian/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 # Ghostty: strip its prompt marks before pure rebuilds PROMPT, else they land mid-line (after %666v) and break redraws
 _strip_ghostty_marks() { setopt localoptions extendedglob; PROMPT=${PROMPT//$'%{\e]133;'[^$'\a']#$'\a%}'} }
 precmd_functions[(i)prompt_pure_precmd]=(_strip_ghostty_marks prompt_pure_precmd)
 
-# mise (node/pnpm/java per project)
+# mise (global node/pnpm/bun from ~/.config/mise/config.toml, per project versions on top)
 eval "$(mise activate zsh)"
+
+# z: jump to frequently used directories (zoxide wants to be last)
+eval "$(zoxide init zsh)"

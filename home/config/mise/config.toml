@@ -1,0 +1,5 @@
+# Global defaults. A project's own mise.toml, .nvmrc or .node-version wins.
+[tools]
+node = "lts"
+pnpm = "latest"
+bun = "latest"

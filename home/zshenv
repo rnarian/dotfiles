@@ -1,0 +1,12 @@
+# Yellow (temp) autosuggested string
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
+
+# $PATH (no duplicates)
+typeset -U path PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+# $EDITOR
+export EDITOR="vim"
+
+# Update locale
+export LANG="de_DE.UTF-8"
